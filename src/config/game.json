@@ -1,0 +1,369 @@
+{
+    "gameWidth": 640,
+    "gameHeight": 384,
+    "tileWidth": 16,
+    "tileHeight": 16,
+    "map": {
+        "tilesets": [
+            {
+                "key": "map_tileset",
+                "file": "map_tileset.png"
+            }
+        ],
+        "tileLayers": [
+            {
+                "name": "floor",
+                "tileset": "map_tileset"
+            },
+            {
+                "name": "floor_decor",
+                "tileset": "map_tileset"
+            },
+            {
+                "name": "walls",
+                "tileset": "map_tileset"
+            },
+            {
+                "name": "walls_decor",
+                "tileset": "map_tileset"
+            }
+        ]
+    },
+    "spriteAtlas": {
+        "key": "sprite_atlas",
+        "imageFile": "sprite_atlas.png",
+        "jsonFile": "sprite_atlas.json"
+    },
+    "rooms": {
+        "1": {
+            "description": "north orange maze top left",
+            "exits": {
+                "north": 3,
+                "east": 2,
+                "south": 3,
+                "west": 4
+            },
+            "fog": false
+        },
+        "2": {
+            "description": "north orange maze top right",
+            "exits": {
+                "north": 4,
+                "east": 3,
+                "south": 4,
+                "west": 1
+            },
+            "fog": false
+        },
+        "3": {
+            "description": "north orange maze bottom left",
+            "exits": {
+                "north": 1,
+                "east": 4,
+                "south": 1,
+                "west": 2
+            },
+            "fog": false
+        },
+        "4": {
+            "description": "north orange maze bottom right",
+            "exits": {
+                "north": 2,
+                "east": 1,
+                "south": 5,
+                "west": 3
+            },
+            "fog": false
+        },
+        "5": {
+            "description": "black castle foyer",
+            "exits": {
+                "north": 4,
+                "east": 5,
+                "south": 6,
+                "west": 5
+            },
+            "fog": false
+        },
+        "6": {
+            "description": "black castle entrance",
+            "exits": {
+                "north": {
+                    "room": 5,
+                    "zone": {
+                        "topLeftTile": {
+                            "x": 19,
+                            "y": 14
+                        },
+                        "tileWidth": 2,
+                        "tileHeight": 1
+                    }
+                },
+                "east": 6,
+                "south": 7,
+                "west": 6
+            },
+            "fog": false
+        },
+        "7": {
+            "description": "blue maze top",
+            "exits": {
+                "north": 6,
+                "east": 10,
+                "south": 8,
+                "west": 11
+            },
+            "fog": false
+        },
+        "8": {
+            "description": "blue maze middle center",
+            "exits": {
+                "north": 7,
+                "east": 9,
+                "south": 11,
+                "west": 9
+            },
+            "fog": false
+        },
+        "9": {
+            "description": "blue maze middle right",
+            "exits": {
+                "north": 10,
+                "east": 8,
+                "south": 14,
+                "west": 8
+            },
+            "fog": false
+        },
+        "10": {
+            "description": "blue maze bottom left",
+            "exits": {
+                "north": 11,
+                "east": 11,
+                "south": 9,
+                "west": 7
+            },
+            "fog": false
+        },
+        "11": {
+            "description": "blue maze bottom center",
+            "exits": {
+                "north": 8,
+                "east": 7,
+                "south": 10,
+                "west": 11
+            },
+            "fog": false
+        },
+        "12": {
+            "description": "gold castle foyer",
+            "exits": {
+                "north": 12,
+                "east": 12,
+                "south": 13,
+                "west": 12
+            },
+            "fog": false
+        },
+        "13": {
+            "description": "gold castle entrance",
+            "exits": {
+                "north": {
+                    "room": 12,
+                    "zone": {
+                        "topLeftTile": {
+                            "x": 19,
+                            "y": 14
+                        },
+                        "tileWidth": 2,
+                        "tileHeight": 1
+                    }
+                },
+                "east": 13,
+                "south": 15,
+                "west": 13
+            },
+            "fog": false
+        },
+        "14": {
+            "description": "gold castle grounds left",
+            "exits": {
+                "north": 9,
+                "east": 15,
+                "south": 16,
+                "west": 17
+            },
+            "fog": false
+        },
+        "15": {
+            "description": "gold castle grounds center",
+            "exits": {
+                "north": 13,
+                "east": 16,
+                "south": 15,
+                "west": 14
+            },
+            "fog": false
+        },
+        "16": {
+            "description": "gold castle grounds right",
+            "exits": {
+                "north": 14,
+                "east": 17,
+                "south": 22,
+                "west": 15
+            },
+            "fog": false
+        },
+        "17": {
+            "description": "easter egg room",
+            "exits": {
+                "north": 17,
+                "east": 14,
+                "south": 17,
+                "west": 16
+            },
+            "fog": false
+        },
+        "18": {
+            "description": "red maze top left",
+            "exits": {
+                "north": 18,
+                "east": 19,
+                "south": 20,
+                "west": 19
+            },
+            "fog": false
+        },
+        "19": {
+            "description": "red maze top right",
+            "exits": {
+                "north": 19,
+                "east": 18,
+                "south": 21,
+                "west": 18
+            },
+            "fog": false
+        },
+        "20": {
+            "description": "red maze bottom left",
+            "exits": {
+                "north": 18,
+                "east": 21,
+                "south": 21,
+                "west": 21
+            },
+            "fog": false
+        },
+        "21": {
+            "description": "red maze bottom right",
+            "exits": {
+                "north": 19,
+                "east": 20,
+                "south": 23,
+                "west": 20
+            },
+            "fog": false
+        },
+        "22": {
+            "description": "south orange maze top",
+            "exits": {
+                "north": 16,
+                "east": 24,
+                "south": 24,
+                "west": 24
+            },
+            "fog": false
+        },
+        "23": {
+            "description": "white castle entrance",
+            "exits": {
+                "north": {
+                    "room": 21,
+                    "zone": {
+                        "topLeftTile": {
+                            "x": 19,
+                            "y": 14
+                        },
+                        "tileWidth": 2,
+                        "tileHeight": 1
+                    }
+                },
+                "east": 23,
+                "south": 26,
+                "west": 23
+            },
+            "fog": false
+        },
+        "24": {
+            "description": "south orange maze center",
+            "exits": {
+                "north": 22,
+                "east": 22,
+                "south": 27,
+                "west": 22
+            },
+            "fog": false
+        },
+        "25": {
+            "description": "empty purple room",
+            "exits": {
+                "north": 25,
+                "east": 25,
+                "south": 28,
+                "west": 25
+            },
+            "fog": false
+        },
+        "26": {
+            "description": "white castle grounds top",
+            "exits": {
+                "north": 23,
+                "east": 27,
+                "south": 29,
+                "west": 28
+            },
+            "fog": false
+        },
+        "27": {
+            "description": "south orange maze bottom",
+            "exits": {
+                "north": 24,
+                "east": 28,
+                "south": 22,
+                "west": 26
+            },
+            "fog": false
+        },
+        "28": {
+            "description": "empty blue room",
+            "exits": {
+                "north": 25,
+                "east": 26,
+                "south": 30,
+                "west": 27
+            },
+            "fog": false
+        },
+        "29": {
+            "description": "white castle grounds bottom",
+            "exits": {
+                "north": 26,
+                "east": 29,
+                "south": 29,
+                "west": 29
+            },
+            "fog": false
+        },
+        "30": {
+            "description": "empty red room",
+            "exits": {
+                "north": 28,
+                "east": 30,
+                "south": 30,
+                "west": 30
+            },
+            "fog": false
+        }
+    }
+}
