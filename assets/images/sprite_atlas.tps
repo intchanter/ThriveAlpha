@@ -197,23 +197,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">sprite_atlas/black_key.png</key>
-            <key type="filename">sprite_atlas/gold_key.png</key>
-            <key type="filename">sprite_atlas/sword.png</key>
-            <key type="filename">sprite_atlas/white_key.png</key>
-            <key type="filename">sprite_atlas/wood.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>8,4,16,8</rect>
-                <key>scale9Paddings</key>
-                <rect>8,4,16,8</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">sprite_atlas/blue_panel.png</key>
             <key type="filename">sprite_atlas/green_panel.png</key>
             <key type="filename">sprite_atlas/grey_panel.png</key>
@@ -326,13 +309,24 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">sprite_atlas/sword.png</key>
+            <key type="filename">sprite_atlas/wood.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,4,16,8</rect>
+                <key>scale9Paddings</key>
+                <rect>8,4,16,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
             <filename>sprite_atlas/player.png</filename>
-            <filename>sprite_atlas/black_key.png</filename>
-            <filename>sprite_atlas/gold_key.png</filename>
-            <filename>sprite_atlas/white_key.png</filename>
             <filename>sprite_atlas/sword.png</filename>
             <filename>sprite_atlas/wood.png</filename>
             <filename>sprite_atlas/yellow_panel.png</filename>

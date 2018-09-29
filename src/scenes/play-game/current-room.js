@@ -97,34 +97,6 @@ export default class CurrentRoomScene extends Phaser.Scene {
                 this.physics.add.existing(prop);
             }
         });
-
-        // setup gate collision if there is a gate in this room
-        this.game.gateProps.forEach((gate) => {
-            if (gate.getCurrentRoom() === this.roomId) {
-                // add gate
-                this.physics.add.existing(gate);
-                gate.setImmovable(true);
-
-                this.physics.add.collider(this.game.actors.player, gate, () => {});
-
-                // make sure gate stays open on room changes
-                this.game.actors.player.once('changingRoom', (data) => {
-                    if(this.game.actors.player.findExit(data.direction, gate.getCurrentRoom()) === data.destinationRoom)
-                        gate.open();
-                });
-
-                this.game.keyProps.forEach(key => {
-                    if (key instanceof gate.requiredKey) {
-                        // gate collision with appropriate key
-                        this.physics.add.collider(key, gate, () => {
-                            if (this.game.actors.player.heldObject() === key) {
-                                gate.toggleGate(this.game.actors.player.heldObject());
-                            }
-                        });
-                    }
-                });
-            }
-        });
     }
 
     setupEdges () {

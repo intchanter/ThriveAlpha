@@ -2,23 +2,15 @@
 
 "apple":
 {
-	"frame": {"x":14,"y":32,"w":15,"h":16},
+	"frame": {"x":62,"y":29,"w":15,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":16},
 	"sourceSize": {"w":15,"h":16}
 },
-"black_key":
-{
-	"frame": {"x":29,"y":32,"w":32,"h":16},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":16},
-	"sourceSize": {"w":32,"h":16}
-},
 "blue_panel":
 {
-	"frame": {"x":0,"y":448,"w":100,"h":100},
+	"frame": {"x":0,"y":45,"w":100,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
@@ -26,7 +18,7 @@
 },
 "dish":
 {
-	"frame": {"x":12,"y":0,"w":16,"h":10},
+	"frame": {"x":32,"y":0,"w":16,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":10},
@@ -34,7 +26,7 @@
 },
 "fish":
 {
-	"frame": {"x":60,"y":0,"w":16,"h":13},
+	"frame": {"x":76,"y":0,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -42,7 +34,7 @@
 },
 "fishingpole":
 {
-	"frame": {"x":93,"y":32,"w":15,"h":16},
+	"frame": {"x":77,"y":29,"w":15,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":16},
@@ -50,23 +42,15 @@
 },
 "food":
 {
-	"frame": {"x":76,"y":0,"w":16,"h":13},
+	"frame": {"x":60,"y":0,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
 	"sourceSize": {"w":16,"h":13}
 },
-"gold_key":
-{
-	"frame": {"x":61,"y":32,"w":32,"h":16},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":16},
-	"sourceSize": {"w":32,"h":16}
-},
 "green_panel":
 {
-	"frame": {"x":0,"y":48,"w":100,"h":100},
+	"frame": {"x":0,"y":245,"w":100,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
@@ -74,7 +58,7 @@
 },
 "grey_panel":
 {
-	"frame": {"x":0,"y":348,"w":100,"h":100},
+	"frame": {"x":0,"y":345,"w":100,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
@@ -82,7 +66,7 @@
 },
 "metal":
 {
-	"frame": {"x":0,"y":0,"w":12,"h":10},
+	"frame": {"x":10,"y":0,"w":12,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
@@ -90,7 +74,7 @@
 },
 "metalblade":
 {
-	"frame": {"x":50,"y":0,"w":10,"h":10},
+	"frame": {"x":0,"y":0,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -98,7 +82,7 @@
 },
 "metalhammer":
 {
-	"frame": {"x":0,"y":32,"w":14,"h":16},
+	"frame": {"x":48,"y":29,"w":14,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":16},
@@ -106,7 +90,7 @@
 },
 "player":
 {
-	"frame": {"x":108,"y":32,"w":16,"h":16},
+	"frame": {"x":32,"y":29,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -114,7 +98,7 @@
 },
 "red_panel":
 {
-	"frame": {"x":0,"y":248,"w":100,"h":100},
+	"frame": {"x":0,"y":445,"w":100,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
@@ -122,7 +106,7 @@
 },
 "stone":
 {
-	"frame": {"x":38,"y":0,"w":12,"h":10},
+	"frame": {"x":48,"y":0,"w":12,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
@@ -130,7 +114,7 @@
 },
 "stoneaxe":
 {
-	"frame": {"x":92,"y":0,"w":16,"h":14},
+	"frame": {"x":0,"y":13,"w":16,"h":14},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":14},
@@ -138,7 +122,7 @@
 },
 "stoneblade":
 {
-	"frame": {"x":28,"y":0,"w":10,"h":10},
+	"frame": {"x":22,"y":0,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -146,7 +130,7 @@
 },
 "stonehammer":
 {
-	"frame": {"x":32,"y":16,"w":14,"h":16},
+	"frame": {"x":32,"y":13,"w":14,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":16},
@@ -154,7 +138,7 @@
 },
 "stonewall":
 {
-	"frame": {"x":108,"y":0,"w":16,"h":16},
+	"frame": {"x":16,"y":13,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -162,7 +146,7 @@
 },
 "sword":
 {
-	"frame": {"x":94,"y":16,"w":32,"h":16},
+	"frame": {"x":0,"y":29,"w":32,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":16},
@@ -170,23 +154,15 @@
 },
 "water":
 {
-	"frame": {"x":46,"y":16,"w":16,"h":16},
+	"frame": {"x":46,"y":13,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
 	"sourceSize": {"w":16,"h":16}
 },
-"white_key":
-{
-	"frame": {"x":0,"y":16,"w":32,"h":16},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":16},
-	"sourceSize": {"w":32,"h":16}
-},
 "wood":
 {
-	"frame": {"x":62,"y":16,"w":32,"h":16},
+	"frame": {"x":62,"y":13,"w":32,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":16},
@@ -194,7 +170,7 @@
 },
 "yellow_panel":
 {
-	"frame": {"x":0,"y":148,"w":100,"h":100},
+	"frame": {"x":0,"y":145,"w":100,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
@@ -205,8 +181,8 @@
 	"version": "1.0",
 	"image": "sprite_atlas.png",
 	"format": "RGBA8888",
-	"size": {"w":126,"h":548},
+	"size": {"w":100,"h":545},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:86ae7e8eda4cc841f967206419f86cdb:d69b2286dec7688c9231850934c80f47:6faed1d119539f9288c5144068f00f24$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c51f75ac8539a474d2ec5650e60f8e83:d9399617e639eb47285c8cb97b026759:6faed1d119539f9288c5144068f00f24$"
 }
 }
