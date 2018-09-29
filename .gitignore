@@ -70,3 +70,6 @@ ThriveAlpha.iml
 
 # Ignore MacNTrash files
 .DS_Store
+
+# Ignore zip binaries
+make*zip
