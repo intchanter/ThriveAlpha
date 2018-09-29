@@ -181,6 +181,20 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">sprite_atlas/apple.png</key>
+            <key type="filename">sprite_atlas/fishingpole.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,7,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,7,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">sprite_atlas/black_key.png</key>
             <key type="filename">sprite_atlas/gold_key.png</key>
             <key type="filename">sprite_atlas/sword.png</key>
@@ -215,16 +229,30 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">sprite_atlas/gate.png</key>
+            <key type="filename">sprite_atlas/dish.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>8,16,16,32</rect>
+                <rect>4,3,8,5</rect>
                 <key>scale9Paddings</key>
-                <rect>8,16,16,32</rect>
+                <rect>4,3,8,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">sprite_atlas/fish.png</key>
+            <key type="filename">sprite_atlas/food.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,3,8,7</rect>
+                <key>scale9Paddings</key>
+                <rect>4,3,8,7</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -241,6 +269,19 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">sprite_atlas/water.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -249,13 +290,18 @@
             <filename>sprite_atlas/gold_key.png</filename>
             <filename>sprite_atlas/white_key.png</filename>
             <filename>sprite_atlas/sword.png</filename>
-            <filename>sprite_atlas/gate.png</filename>
             <filename>sprite_atlas/wood.png</filename>
             <filename>sprite_atlas/yellow_panel.png</filename>
             <filename>sprite_atlas/red_panel.png</filename>
             <filename>sprite_atlas/green_panel.png</filename>
             <filename>sprite_atlas/blue_panel.png</filename>
             <filename>sprite_atlas/grey_panel.png</filename>
+            <filename>sprite_atlas/apple.png</filename>
+            <filename>sprite_atlas/dish.png</filename>
+            <filename>sprite_atlas/fish.png</filename>
+            <filename>sprite_atlas/fishingpole.png</filename>
+            <filename>sprite_atlas/food.png</filename>
+            <filename>sprite_atlas/water.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
