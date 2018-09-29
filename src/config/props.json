@@ -50,5 +50,18 @@
         "startingRoom": 15,
         "startingX": 160,
         "startingY": 170
+    },
+    "dish": {
+        "frame": "dish",
+        "startingRoom": 15,
+        "startingX": 350,
+        "startingY": 200
+    },
+    "water": {
+        "frame": "water",
+        "startingRoom": 15,
+        "startingX": 400,
+        "startingY": 200,
+        "pickup": false
     }
 }

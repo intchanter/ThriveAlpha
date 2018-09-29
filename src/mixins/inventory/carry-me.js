@@ -50,6 +50,16 @@ export default (superclass) => class extends superclass {
         return false;
     }
 
+    canForgeWith (prop) {
+
+        // TODO: Store in a smarter way what can forge with what
+        if (prop.config.frame === 'dish' && this.config.frame === 'water') {
+            return true;
+        }
+
+        return false;
+    }
+
     // NOTE! anything using this mixins will need to call super.preUpdate so we call this function
     // just this mixin does in case it is embedded in other mixins
     preUpdate (time, delta) {

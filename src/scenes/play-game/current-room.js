@@ -70,11 +70,26 @@ export default class CurrentRoomScene extends Phaser.Scene {
 
         // prop collisions
         Object.values(this.game.props).forEach((prop) => {
-            if (typeof prop.canBeCarried === 'function' && prop.canBeCarried(this.game.actors.player)) {
-                this.physics.add.collider(this.game.actors.player, prop, () => {
-                    if (!prop.isCarried()) prop.holdMe(this.game.actors.player);
-                });
-            }
+            // the collision event (this actor with ANY prop)
+            this.physics.add.collider(this.game.actors.player, prop, () => {
+
+                // player is carrying a prop and it can be forged with the collided one
+                var carriedObject = this.game.actors.player.objectCarried;
+                if (carriedObject && carriedObject !== prop && prop.canForgeWith(carriedObject)) {
+                    
+                    // execute the forge
+                    // TODO:
+                    // 1) Handle which of the two objects are consumed and remove them
+                    // 2) Handle the effect on the player by the merge (e.g. thirst decreased)
+                    // 3) Add any newly formed props, and whether they are held or just on the ground
+                    carriedObject.forgeWith(this.game.actors.player, prop);
+                }
+
+                // picking up another prop
+                else if (typeof prop.canBeCarried === 'function' && prop.canBeCarried(this.game.actors.player) && !prop.isCarried()) {
+                    prop.holdMe(this.game.actors.player);
+                }
+            });
         });
         this.cameras.main.startFollow(this.game.actors.player);
     }

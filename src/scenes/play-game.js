@@ -11,6 +11,8 @@ import WhiteGate from '../props/gates/white-gate';
 import BlackGate from '../props/gates/black-gate';
 import Sword from '../props/sword';
 import Wood from '../props/wood';
+import Water from '../props/water';
+import Dish from '../props/dish';
 
 export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
     constructor (config, key = 'PlayGame') {
@@ -42,6 +44,10 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
         this.createSword();
 
         this.createWood();
+
+        this.createWater();
+
+        this.createDish();
 
         this.createGates();
 
@@ -78,6 +84,14 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
 
     createWood () {
         this.props.wood = new Wood(this);
+    }
+
+    createWater () {
+        this.props.water = new Water(this);
+    }
+
+    createDish () {
+        this.props.dish = new Dish(this);
     }
 
     createGates () {

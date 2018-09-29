@@ -32,6 +32,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":10},
 	"sourceSize": {"w":16,"h":10}
 },
+"water":
+{
+	"frame": {"x":20,"y":300,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
 "fish":
 {
 	"frame": {"x":46,"y":0,"w":16,"h":13},

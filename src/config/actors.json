@@ -2,8 +2,8 @@
     "player": {
         "frame": "player",
         "startingRoom": 15,
-        "startingX": 100,
-        "startingY": 100,
+        "startingX": 300,
+        "startingY": 200,
         "maxThirst": 5000,
         "thirstRate": 2,
         "maxHunger": 5000,
