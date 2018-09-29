@@ -44,5 +44,11 @@
         "startingRoom": 15,
         "startingX": 150,
         "startingY": 150
+    },
+    "wood": {
+        "frame": "wood",
+        "startingRoom": 15,
+        "startingX": 160,
+        "startingY": 170
     }
 }
