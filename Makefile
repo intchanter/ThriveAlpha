@@ -59,7 +59,6 @@ INSTALL_MING: $(MING_NPM_FILE) $(MING_NPM_INSTALL)
 	unzip -q $(MING_NPM_FILE)
 	[ -e $(NPM) ] || mv node-v*/* $(MING_NPM_INSTALL)/.
 	rm -rf node-v*/
-	[ -e $(NPM) ] && touch $(NPM)
 
 $(MING_NPM_FILE):
 	@curl -o $(MING_NPM_FILE) $(MING_NPM_URL)
