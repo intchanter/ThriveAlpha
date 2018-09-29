@@ -47,12 +47,6 @@ export default class CurrentRoomScene extends Phaser.Scene {
             this.tileLayers[layer.name] = this.tilemap.createDynamicLayer(layer.name, this.tilesets[layer.tileset], 0, 0);
         });
 
-        // set collision on walls
-        this.tileLayers.walls.setCollisionByProperty({ collides: true });
-
-        // set z-index of walls higher so actors / props are underneath
-        this.tileLayers.walls.setDepth(1);
-
         // resize world to match the tilemap
         this.physics.world.setBounds(0, 0, this.tilemap.widthInPixels, this.tilemap.heightInPixels);
         this.cameras.main.setBounds(0, 0, this.tilemap.widthInPixels, this.tilemap.heightInPixels);
@@ -66,6 +60,8 @@ export default class CurrentRoomScene extends Phaser.Scene {
 
         this.onEdge(this.game.actors.player); // room edge detection
 
+        // set collision on walls
+        this.tileLayers.walls.setCollisionByExclusion([-1]);
         this.physics.add.collider(this.game.actors.player, this.tileLayers.walls); // map collisions with wall layer
 
         // prop collisions
