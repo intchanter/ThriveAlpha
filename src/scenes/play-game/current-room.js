@@ -76,6 +76,7 @@ export default class CurrentRoomScene extends Phaser.Scene {
                 });
             }
         });
+        this.cameras.main.startFollow(this.game.actors.player);
     }
 
     setupProps () {

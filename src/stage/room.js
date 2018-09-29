@@ -6,5 +6,6 @@ export default class Room {
         let roomConfig = gameConfig.rooms[number];
         this.map = roomConfig.map;
         this.fog = roomConfig.fog;
+        this.scene.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     }
 }
