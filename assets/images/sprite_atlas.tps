@@ -185,6 +185,7 @@
             <key type="filename">sprite_atlas/gold_key.png</key>
             <key type="filename">sprite_atlas/sword.png</key>
             <key type="filename">sprite_atlas/white_key.png</key>
+            <key type="filename">sprite_atlas/wood.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -232,6 +233,7 @@
             <filename>sprite_atlas/white_key.png</filename>
             <filename>sprite_atlas/sword.png</filename>
             <filename>sprite_atlas/gate.png</filename>
+            <filename>sprite_atlas/wood.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
