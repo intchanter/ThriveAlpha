@@ -59,7 +59,7 @@ INSTALL_MING: $(MING_NPM_FILE) $(MING_NPM_INSTALL)
 	@echo READY TO INSTALL NPM ...
 	unzip $(MING_NPM_FILE)
 	mv node-v*/* $(MING_NPM_INSTALL)/.
-	rmdir node-v*
+	rmdir node-v*/
 
 $(MING_NPM_FILE):
 	@curl -o $(MING_NPM_FILE) $(MING_NPM_URL)
