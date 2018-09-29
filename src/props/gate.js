@@ -4,7 +4,7 @@ import RoomLocation from '../mixins/room/location';
 
 import Key from './key';
 
-export default class Gate extends 
+export default class Gate extends
     RoomLocation(
         Phaser.Physics.Arcade.Image
     ) {

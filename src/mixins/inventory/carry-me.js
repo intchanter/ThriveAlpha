@@ -17,7 +17,7 @@ export default (superclass) => class extends superclass {
 
     dropMe () {
         // my current carry target should know they are carrying me anymore
-        if (this.carryTarget && this.carryTarget.objectCarried === this) this.carryTarget.objectCarried = null; 
+        if (this.carryTarget && this.carryTarget.objectCarried === this) this.carryTarget.objectCarried = null;
 
         // I don't know about my carry target anymore
         this.carryTarget = null;
@@ -27,7 +27,7 @@ export default (superclass) => class extends superclass {
     }
 
     isCarried () {
-        return this.carryTarget != null; 
+        return this.carryTarget != null;
     }
 
     setCanCarry (ActorClass) {

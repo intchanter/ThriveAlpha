@@ -35,11 +35,11 @@ export default class UIScene extends Phaser.Scene {
         let hungerPercentage = this.game.actors.player.hunger / this.game.actors.player.maxHunger;
         if (hungerPercentage > 1) hungerPercentage = 1;
 
-        this.hungerForeground.setDisplaySize(hungerPercentage * 200, 26); 
+        this.hungerForeground.setDisplaySize(hungerPercentage * 200, 26);
 
         let thirstPercentage = this.game.actors.player.thirst / this.game.actors.player.maxThirst;
         if (thirstPercentage > 1) thirstPercentage = 1;
 
-        this.thirstForeground.setDisplaySize(thirstPercentage * 200, 26); 
+        this.thirstForeground.setDisplaySize(thirstPercentage * 200, 26);
     }
 }

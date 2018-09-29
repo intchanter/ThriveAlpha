@@ -44,6 +44,6 @@ export default class LoadingScene extends Phaser.Scene {
     }
 
     create () {
-        this.scene.start('MainMenu'); 
+        this.scene.start('MainMenu');
     }
 };

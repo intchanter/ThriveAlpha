@@ -14,7 +14,7 @@ export default class CurrentRoomScene extends Phaser.Scene {
 
     create () {
         this.game = this.scene.get('PlayGame');
-        
+
         this.setupMap();
 
         this.setupEdges();
@@ -72,7 +72,7 @@ export default class CurrentRoomScene extends Phaser.Scene {
                 // player is carrying a prop and it can be forged with the collided one
                 var carriedObject = this.game.actors.player.objectCarried;
                 if (carriedObject && carriedObject !== prop && prop.canForgeWith(carriedObject)) {
-                    
+
                     // execute the forge
                     // TODO:
                     // 1) Handle which of the two objects are consumed and remove them

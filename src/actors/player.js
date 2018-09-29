@@ -23,7 +23,7 @@ export default class Player extends
         this.thirst = 0;
         this.thirstRate = this.config.thirstRate;
         this.maxThirst = this.config.maxThirst;
-         
+
         this.hunger = 0;
         this.hungerRate = this.config.hungerRate;
         this.maxHunger = this.config.maxHunger;
