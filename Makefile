@@ -1,8 +1,8 @@
 # phaser project
 
-NPM = $(which npm || echo "npm")
+NPM = $(shell which npm || echo "npm")
 MING_NPM_URL = https://nodejs.org/download/release/v7.4.0/node-v7.4.0-win-x64.zip
-MING_NPM_FILE = $(basename $(MING_NPMURL))
+MING_NPM_FILE = $(shell basename $(MING_NPM_URL))
 
 all: node_modules
 
