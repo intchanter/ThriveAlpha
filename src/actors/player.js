@@ -2,16 +2,13 @@ import gameConfig from '../config/game.json';
 import actorConfig from '../config/actors.json';
 
 import HoldObject from '../mixins/inventory/hold-object';
-import RoomMovement from '../mixins/room/movement';
 import RoomLocation from '../mixins/room/location';
 
 export default class Player extends
     RoomLocation(
-       RoomMovement(
-           HoldObject(
-               Phaser.Physics.Arcade.Sprite
-           )
-       )
+        HoldObject(
+            Phaser.Physics.Arcade.Sprite
+        )
     ) {
     constructor (scene, x = actorConfig.player.startingX, y = actorConfig.player.startingY) {
         super(scene, x, y, gameConfig.spriteAtlas.key, actorConfig.player.frame);
