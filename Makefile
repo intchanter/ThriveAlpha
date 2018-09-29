@@ -1,14 +1,14 @@
 # phaser project
 
-NPM = $(shell which npm || echo "npm")
 MING_NPM_URL = https://nodejs.org/download/release/v7.4.0/node-v7.4.0-win-x64.zip
 MING_NPM_FILE = $(shell basename $(MING_NPM_URL))
 MING_NPM_INSTALL = /c/dev/node
+PATH := $(PATH):$(MING_NPM_INSTALL)
+NPM = $(shell which npm || echo "npm")
 
 all: node_modules
 
 start: node_modules
-	@[ ! -d $(MING_NPM_INSTALL) ] || export PATH=$(PATH):$(MING_NPM_INSTALL)
 	npm start </dev/null
 
 stop:
@@ -21,7 +21,6 @@ audiosprite:
 	npm run audiosprite </dev/null
 
 node_modules: package.json $(NPM)
-	@[ ! -d $(MING_NPM_INSTALL) ] || export PATH=$(PATH):$(MING_NPM_INSTALL)
 	npm install
 
 clean:
