@@ -26,11 +26,11 @@
 },
 "player":
 {
-	"frame": {"x":0,"y":96,"w":16,"h":16},
+	"frame": {"x":0,"y":96,"w":6,"h":16},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
-	"sourceSize": {"w":16,"h":16}
+	"spriteSourceSize": {"x":0,"y":0,"w":6,"h":16},
+	"sourceSize": {"w":6,"h":16}
 },
 "sword":
 {
@@ -63,6 +63,6 @@
 	"format": "RGBA8888",
 	"size": {"w":32,"h":160},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:69a86dc58eabaa074107c0cc34759576:637348b5bf0ed5a82e3b57215457e8bb:6faed1d119539f9288c5144068f00f24$"
+	"smartupdate": "$TexturePacker:SmartUpdate:fcb0267e95c004c8b079dba27c21e273:fc21880ce10e0d0184c7e2f168b22bcd:6faed1d119539f9288c5144068f00f24$"
 }
 }
