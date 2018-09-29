@@ -55,8 +55,8 @@ INSTALL_OSX:
 	@which npm || brew install node
 
 INSTALL_MING: $(MING_NPM_FILE) $(MING_NPM_INSTALL)
-	@echo READY TO INSTALL NPM ...
-	unzip $(MING_NPM_FILE)
+	@echo Installing npm for Windows ...
+	unzip -q $(MING_NPM_FILE)
 	mv node-v*/* $(MING_NPM_INSTALL)/.
 	rmdir node-v*/
 
