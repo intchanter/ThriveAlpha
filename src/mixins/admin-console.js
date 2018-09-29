@@ -6,6 +6,7 @@ export default (superclass) => class extends superclass {
             window.admin = {};
 
             let scene = this;
+
             window.admin.teleport = function (roomId) {
                 let roomInfo = scene.actors.player.getRoomInfo(roomId);
 
@@ -14,6 +15,13 @@ export default (superclass) => class extends superclass {
                     scene.currentRoom.changeRoom(roomId);
                 }
             };
+
+            window.admin.playerStats = function () {
+                console.log({
+                    hunger: scene.actors.player.hunger,
+                    thirst: scene.actors.player.thirst
+                })
+            }
         }
     }
 }
