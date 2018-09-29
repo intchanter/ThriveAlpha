@@ -19,6 +19,8 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
         this.actors = {};
 
         this.props = {};
+
+        this.isGameOver = false;
     }
 
     init () {
@@ -85,5 +87,19 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
             this.props.whiteGate,
             this.props.blackGate
         ];
+    }
+
+    gameOver (reason) {
+        // TODO: remove this console.log when we are ready for real game over
+        if (!this.isGameOver) console.log(`Game Over! ${reason}`);
+
+        this.isGameOver = true;
+
+        // TODO: remove this return when are ready for real game over
+        return;
+
+        this.scene.stop('CurrentRoom');
+
+        this.scene.start('MainMenu');
     }
 };

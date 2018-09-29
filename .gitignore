@@ -67,3 +67,4 @@ typings
 # IntelliJ
 .idea
 ThriveAlpha.iml
+assets/.DS_Store

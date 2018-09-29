@@ -14,7 +14,7 @@ export default class CurrentRoomScene extends Phaser.Scene {
 
     create () {
         this.game = this.scene.get('PlayGame');
-
+        
         this.setupMap();
 
         this.setupEdges();
@@ -23,6 +23,7 @@ export default class CurrentRoomScene extends Phaser.Scene {
 
         this.setupProps();
 
+        // cleanup when we shutdown (change rooms)
         this.events.once('shutdown', () => (this.cleanup()));
     }
 

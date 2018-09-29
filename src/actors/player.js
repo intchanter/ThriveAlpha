@@ -20,6 +20,12 @@ export default class Player extends
 
         this.config = actorConfig.player;
 
+        this.thirst = 0;
+        this.maxThirst = this.config.maxThirst;
+         
+        this.hunger = 0;
+        this.maxHunger = this.config.maxHunger;
+
         this.setCurrentRoom(this.config.startingRoom);
     }
 
@@ -41,6 +47,18 @@ export default class Player extends
         this.setVelocityY(vy);
 
         if (dropItem.isDown && this.heldObject()) this.dropObject();
+
+        this.thirst += 1;
+        if (this.thirst >= this.maxThirst) {
+            // player dies!
+            this.scene.gameOver('You died from Thirst!');
+        }
+
+        this.hunger += 1;
+        if (this.hunger >= this.maxHunger) {
+            // player dies!
+            this.scene.gameOver('You died from Hunger!');
+        }
 
         if (super.preUpdate) super.preUpdate(time, delta);
     }
