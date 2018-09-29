@@ -63,3 +63,7 @@ typings/
 # Editor temporary files
 .*.sw?  # Vim
 *~  # Emacs
+
+# IntelliJ
+.idea/
+ThriveAlpha.iml
