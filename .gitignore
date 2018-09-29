@@ -71,5 +71,5 @@ ThriveAlpha.iml
 # Ignore MacNTrash files
 .DS_Store
 
-# Ignore zip binaries
-make*zip
+# Ignore zip binaries for windows
+*zip
