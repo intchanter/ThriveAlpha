@@ -4,8 +4,10 @@
         "startingRoom": 15,
         "startingX": 100,
         "startingY": 100,
-        "maxThirst": 1000,
-        "maxHunger": 1000,
+        "maxThirst": 5000,
+        "thirstRate": 2,
+        "maxHunger": 5000,
+        "hungerRate": 1,
         "velocity": 200
     }
 }       

@@ -11,6 +11,7 @@ import LoadingScene from './scenes/loading';
 import MainMenuScene from './scenes/main-menu';
 import PlayGameScene from './scenes/play-game';
 import CurrentRoomScene from './scenes/play-game/current-room';
+import UIScene from './scenes/play-game/ui';
 
 var gameSettings = {
     type: Phaser.AUTO,
@@ -23,7 +24,7 @@ var gameSettings = {
             debug: false // enable to see physics bodies outlined
         }
     },
-    scene: [LoadingScene, MainMenuScene, PlayGameScene, CurrentRoomScene],
+    scene: [LoadingScene, MainMenuScene, PlayGameScene, CurrentRoomScene, UIScene],
     callbacks: {
         postBoot: (game) => {
             game.registry.set('allowAdminConsole', true); // enable game admin commands via devtools console

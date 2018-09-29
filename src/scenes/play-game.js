@@ -33,6 +33,7 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
 
     create () {
         this.currentRoom = this.scene.get('CurrentRoom');
+        this.ui = this.scene.get('UI');
 
         this.createPlayer();
 
@@ -46,6 +47,9 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
 
         // load current room
         this.scene.launch('CurrentRoom', { roomId: this.actors.player.getCurrentRoom() });
+
+        // load the ui
+        this.scene.launch('UI');
     }
 
     update (time, delta) {
@@ -98,6 +102,7 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
         // TODO: remove this return when are ready for real game over
         return;
 
+        this.scene.stop('UI');
         this.scene.stop('CurrentRoom');
 
         this.scene.start('MainMenu');
