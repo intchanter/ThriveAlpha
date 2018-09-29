@@ -3,10 +3,12 @@
 NPM = $(shell which npm || echo "npm")
 MING_NPM_URL = https://nodejs.org/download/release/v7.4.0/node-v7.4.0-win-x64.zip
 MING_NPM_FILE = $(shell basename $(MING_NPM_URL))
+MING_NPM_INSTALL = /c/dev/node
 
 all: node_modules
 
 start: node_modules
+	@[ ! -d $(MING_NPM_INSTALL) ] || export PATH=$(PATH):$(MING_NPM_INSTALL)
 	npm start </dev/null
 
 stop:
@@ -19,10 +21,11 @@ audiosprite:
 	npm run audiosprite </dev/null
 
 node_modules: package.json $(NPM)
+	@[ ! -d $(MING_NPM_INSTALL) ] || export PATH=$(PATH):$(MING_NPM_INSTALL)
 	npm install
 
 clean:
-	rm -rf node_modules
+	rm -rf node_modules *.zip
 
 butler_push:
 	butler push dist/dist-latest.zip dashbangsplat/misadventure:latest
@@ -52,14 +55,16 @@ INSTALL_OSX:
 	@echo Installing npm ...
 	@which npm || brew install node
 
-INSTALL_MING: $(MING_NPM_FILE)
+INSTALL_MING: $(MING_NPM_FILE) $(MING_NPM_INSTALL)
 	@echo READY TO INSTALL NPM ...
-	exit 1
+	unzip -d $(MING_NPM_INSTALL) $(MING_NPM_FILE)
 
 $(MING_NPM_FILE):
 	@curl -o $(MING_NPM_FILE) $(MING_NPM_URL)
 	@[ ! -z $(MING_NPM_FILE) ]
 	@echo Downloaded NPM successfully ...
-	@exit 1
+
+$(MING_NPM_INSTALL):
+	mkdir -p $(MING_NPM_INSTALL)
 
 .PHONY: all start stop dist audiosprite clean butler_push butler_status
