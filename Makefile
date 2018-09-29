@@ -57,8 +57,9 @@ INSTALL_OSX:
 INSTALL_MING: $(MING_NPM_FILE) $(MING_NPM_INSTALL)
 	@echo Installing npm for Windows ...
 	unzip -q $(MING_NPM_FILE)
-	mv node-v*/* $(MING_NPM_INSTALL)/.
-	rmdir node-v*/
+	[ -e $(NPM) ] || mv node-v*/* $(MING_NPM_INSTALL)/.
+	rm -rf node-v*/
+	[ -e $(NPM) ] && touch $(NPM)
 
 $(MING_NPM_FILE):
 	@curl -o $(MING_NPM_FILE) $(MING_NPM_URL)
