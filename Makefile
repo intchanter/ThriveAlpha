@@ -58,7 +58,7 @@ INSTALL_MING: $(MING_NPM_FILE)
 
 $(MING_NPM_FILE):
 	@curl -o $(MING_NPM_FILE) $(MING_NPM_URL)
-	@[ !-z $(MING_NPM_FILE) ]
+	@[ ! -z $(MING_NPM_FILE) ]
 	@echo Downloaded NPM successfully ...
 	@exit 1
 
