@@ -6,26 +6,22 @@
     "map": {
         "tilesets": [
             {
-                "key": "map_tileset",
-                "file": "map_tileset.png"
+                "key": "map-tileset-tiny",
+                "file": "map-tileset-tiny.png"
             }
         ],
         "tileLayers": [
             {
-                "name": "floor",
-                "tileset": "map_tileset"
-            },
-            {
-                "name": "floor_decor",
-                "tileset": "map_tileset"
+                "name": "Terrain",
+                "tileset": "map-tileset-tiny"
             },
             {
                 "name": "walls",
-                "tileset": "map_tileset"
+                "tileset": "map-tileset-tiny"
             },
             {
-                "name": "walls_decor",
-                "tileset": "map_tileset"
+                "name": "Bridge",
+                "tileset": "map-tileset-tiny"
             }
         ]
     },

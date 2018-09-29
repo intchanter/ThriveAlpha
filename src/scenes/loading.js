@@ -10,7 +10,7 @@ import gameConfig from '../config/game.json';
 // require('../../assets/sounds/sound.wav');
 require('../../assets/images/sprite_atlas.json');
 require('../../assets/images/sprite_atlas.png');
-require('../../assets/images/map_tileset.png');
+require('../../assets/images/map-tileset-tiny.png');
 require('../../assets/images/play.png');
 
 require('../../assets/json/room15.json');
