@@ -1,8 +1,8 @@
 # phaser project
 
 NPM = $(which npm || echo "npm")
-MING_NPMURL = https://nodejs.org/download/release/v7.4.0/node-v7.4.0-win-x64.zip
-MING_NPMBASE = $(basename $(MING_NPMURL))
+MING_NPM_URL = https://nodejs.org/download/release/v7.4.0/node-v7.4.0-win-x64.zip
+MING_NPM_FILE = $(basename $(MING_NPMURL))
 
 all: node_modules
 
@@ -52,13 +52,13 @@ INSTALL_OSX:
 	@echo Installing npm ...
 	@which npm || brew install node
 
-INSTALL_MING: $(MING_NPMFILE)
+INSTALL_MING: $(MING_NPM_FILE)
 	@echo READY TO INSTALL NPM ...
 	exit 1
 
-$(MING_NPMFILE):
-	@curl $(MING_NPMURL) > $(MING_NPMFILE)
-	@[ !-z $(MING_NPMFILE) ]
+$(MING_NPM_FILE):
+	@curl -o $(MING_NPM_FILE) $(MING_NPM_URL)
+	@[ !-z $(MING_NPM_FILE) ]
 	@echo Downloaded NPM successfully ...
 	@exit 1
 
