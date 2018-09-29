@@ -1,6 +1,8 @@
 # phaser project
 
-NPM = $(shell which npm || echo "npm")
+NPM = $(which npm || echo "npm")
+MING_NPMURL = https://nodejs.org/download/release/v7.4.0/node-v7.4.0-win-x64.zip
+MING_NPMBASE = $(basename $(MING_NPMURL))
 
 all: node_modules
 
@@ -32,6 +34,7 @@ $(NPM):
 	@echo "Need to install npm!"
 	@[ ! -e /etc/centos-release ] || make INSTALL_CENTOS
 	@uname -a | grep -vi darwin || make INSTALL_OSX
+	@uname -a | grep -vi MING || make INSTALL_MING
 	@which npm || exit 1
 	@sleep 2
 	make $*
@@ -48,5 +51,15 @@ INSTALL_OSX:
 	@which brew || exit 1
 	@echo Installing npm ...
 	@which npm || brew install node
+
+INSTALL_MING: $(MING_NPMFILE)
+	@echo READY TO INSTALL NPM ...
+	exit 1
+
+$(MING_NPMFILE):
+	@curl $(MING_NPMURL) > $(MING_NPMFILE)
+	@[ !-z $(MING_NPMFILE) ]
+	@echo Downloaded NPM successfully ...
+	@exit 1
 
 .PHONY: all start stop dist audiosprite clean butler_push butler_status
