@@ -67,4 +67,6 @@ typings
 # IntelliJ
 .idea
 ThriveAlpha.iml
-assets/.DS_Store
+
+# Ignore MacNTrash files
+.DS_Store
