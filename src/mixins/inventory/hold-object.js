@@ -25,6 +25,28 @@ export default (superclass) => class extends superclass {
 
         this.objectCarried = prop;
         prop.holdMe(this);
+
+        console.log(prop);
+        console.log(this);
+        Object.values(this.scene.props).forEach((propFromList) => {
+            console.log(propFromList);
+            this.scene.physics.add.overlap(prop, propFromList, () => {
+                let player = 'ihguasdf';
+                console.log('asdff');
+                if (player.isHoldingObject()) { 
+                    let carriedObject = player.heldObject();
+                    console.log(carriedObject);
+                    if(carriedObject !== prop && prop.canForgeWith(carriedObject)) {
+                        // execute the forge
+                        // TODO:
+                        // 1) Handle which of the two objects are consumed and remove them
+                        // 2) Handle the effect on the player by the merge (e.g. thirst decreased)
+                        // 3) Add any newly formed props, and whether they are held or just on the ground
+                        carriedObject.forgeWith(player, prop, carriedObject);
+                    }
+                }
+            });
+        });
     }
 
     dropObject () {
