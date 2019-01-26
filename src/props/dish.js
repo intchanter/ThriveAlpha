@@ -4,17 +4,11 @@ import propConfig from '../config/props.json';
 import Player from '../actors/player';
 import Water from '../props/water';
 
-import CarryMe from '../mixins/inventory/carry-me';
-import RoomLocation from '../mixins/room/location';
+import Prop from '../generics/prop';
 
-export default class Dish extends
-    RoomLocation(
-        CarryMe(
-            Phaser.Physics.Arcade.Image
-        )
-    ) {
+export default class Dish extends Prop {
     constructor (scene, x = propConfig.dish.startingX, y = propConfig.dish.startingY) {
-        super(scene, x, y, gameConfig.spriteAtlas.key, propConfig.dish.frame);
+        super(scene, x, y, propConfig.dish.frame);
 
         this.config = propConfig.dish;
 

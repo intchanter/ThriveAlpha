@@ -3,17 +3,11 @@ import propConfig from '../config/props.json';
 
 import Player from '../actors/player';
 
-import CarryMe from '../mixins/inventory/carry-me';
-import RoomLocation from '../mixins/room/location';
+import Prop from '../generics/prop';
 
-export default class Sword extends
-    RoomLocation(
-        CarryMe(
-            Phaser.Physics.Arcade.Image
-        )
-    ) {
+export default class Sword extends Prop {
     constructor (scene, x = propConfig.sword.startingX, y = propConfig.sword.startingY) {
-        super(scene, x, y, gameConfig.spriteAtlas.key, propConfig.sword.frame);
+        super(scene, x, y, propConfig.sword.frame);
 
         this.config = propConfig.sword;
 

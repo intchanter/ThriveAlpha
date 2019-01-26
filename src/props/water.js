@@ -3,18 +3,11 @@ import propConfig from '../config/props.json';
 
 import Player from '../actors/player';
 
+import Prop from '../generics/prop';
 
-import CarryMe from '../mixins/inventory/carry-me';
-import RoomLocation from '../mixins/room/location';
-
-export default class Water extends
-    RoomLocation(
-        CarryMe(
-            Phaser.Physics.Arcade.Image
-        )
-    ) {
+export default class Water extends Prop {
     constructor (scene, x = propConfig.water.startingX, y = propConfig.water.startingY) {
-        super(scene, x, y, gameConfig.spriteAtlas.key, propConfig.water.frame);
+        super(scene, x, y, propConfig.water.frame);
 
         this.config = propConfig.water;
 

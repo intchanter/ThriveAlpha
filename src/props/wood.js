@@ -3,17 +3,11 @@ import propConfig from '../config/props.json';
 
 import Player from '../actors/player';
 
-import CarryMe from '../mixins/inventory/carry-me';
-import RoomLocation from '../mixins/room/location';
+import Prop from '../generics/prop';
 
-export default class Wood extends
-    RoomLocation(
-        CarryMe(
-            Phaser.Physics.Arcade.Image
-        )
-    ) {
+export default class Wood extends Prop {
     constructor (scene, x = propConfig.wood.startingX, y = propConfig.wood.startingY) {
-        super(scene, x, y, gameConfig.spriteAtlas.key, propConfig.wood.frame);
+        super(scene, x, y,  propConfig.wood.frame);
 
         this.config = propConfig.wood;
 
