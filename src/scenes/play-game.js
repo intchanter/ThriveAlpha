@@ -28,8 +28,6 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
 
         this.dropItem = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.actorGroup = this.physics.add.group();
-
         this.propsGroup = this.physics.add.group();
     }
 
@@ -50,12 +48,6 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
         this.createDish();
 
         this.createFood();
-
-        // setup actors group
-        Object.keys(this.actors).forEach(actorKey => {
-            const actor = this.actors[actorKey];
-            this.actorGroup.add(actor);
-        });
 
         // setup props group
         Object.keys(this.props).forEach(propKey => {
