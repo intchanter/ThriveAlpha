@@ -9,14 +9,11 @@ export default (superclass) => class extends superclass {
 
     dropMe () {
         // I don't know about my carrier anymore
-        this.carryTarget = null;
-
-        // I don't want to be moving when I drop
-        //this.setVelocity(0, 0);
+        this.carryTarget = undefined; 
     }
 
     isCarried () {
-        return this.carryTarget != null;
+        return this.carryTarget !== undefined;
     }
 
     setCanCarry (ActorClass) {

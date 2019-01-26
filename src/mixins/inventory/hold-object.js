@@ -3,32 +3,32 @@ export default (superclass) => class extends superclass {
         return this.objectCarried;
     }
 
-    holdObject (object) {
-        if (this.heldObject()) {
-            // We're already holding something
-            return;
-        }
+    isHoldingObject () {
+        return this.objectCarried !== undefined;
+    }
 
-        if (!object.canBeCarried()) {
-            return;
-        }
+    holdObject (prop) {
+        // If we are already holding something, don't hold this prop
+        if (this.isHoldingObject()) return;
 
-        if (object.isCarried()) {
-            // It's already being held
-            return;
-        }
+        // It's already being held
+        if (prop.isCarried()) return;
 
-        console.log('Starting to carry ' + object);
-        this.objectCarried = object;
-        object.holdMe(this);
+        // Don't hold this prop if we are not allowed to hold it
+        if (!prop.canBeCarried(this)) return;
+
+        this.objectCarried = prop;
+        prop.holdMe(this);
     }
 
     dropObject () {
-        if (!this.heldObject()) {
-            return;
-        }
-        this.objectCarried = null;
+        // If we are not holding something we can't drop it
+        if (!this.isHoldingObject()) return;
+
+        // tell object it is being dropped
         this.heldObject().dropMe();
+
+        this.objectCarried = undefined;
     }
 
     // NOTE! anything using this mixins will need to call super.preUpdate so we call this function

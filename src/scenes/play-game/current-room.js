@@ -56,25 +56,25 @@ export default class CurrentRoomScene extends Phaser.Scene {
     }
 
     setupActors () {
-        this.add.existing(this.game.actors.player); // makes player.preUpdate get called
-        this.physics.add.existing(this.game.actors.player, false);
+        let { player } = this.game.actors;
 
-        this.game.actors.player.setCollideWorldBounds(true);
+        this.add.existing(player); // makes player.preUpdate get called
+        this.physics.add.existing(player, false);
 
-        this.onEdge(this.game.actors.player); // room edge detection
+        player.setCollideWorldBounds(true);
+
+        this.onEdge(player); // room edge detection
 
         // set collision on walls
         this.tileLayers.walls.setCollisionByExclusion([-1]);
-        this.physics.add.collider(this.game.actors.player, this.tileLayers.walls); // map collisions with wall layer
+        this.physics.add.collider(player, this.tileLayers.walls); // map collisions with wall layer
 
         // prop collisions
         Object.values(this.game.props).forEach((prop) => {
             // the collision event (this actor with ANY prop)
-            this.physics.add.overlap(this.game.actors.player, prop, () => {
-                console.log('Player overlap detected.' + prop);
-
+            this.physics.add.overlap(player, prop, () => {
                 // player is carrying a prop and it can be forged with the collided one
-                var carriedObject = this.game.actors.player.objectCarried;
+                var carriedObject = player.objectCarried;
                 if (carriedObject && carriedObject !== prop && prop.canForgeWith(carriedObject)) {
 
                     // execute the forge
@@ -82,16 +82,16 @@ export default class CurrentRoomScene extends Phaser.Scene {
                     // 1) Handle which of the two objects are consumed and remove them
                     // 2) Handle the effect on the player by the merge (e.g. thirst decreased)
                     // 3) Add any newly formed props, and whether they are held or just on the ground
-                    carriedObject.forgeWith(this.game.actors.player, prop);
+                    carriedObject.forgeWith(player, prop);
                 }
 
-                // picking up another prop
-                else if (typeof prop.canBeCarried === 'function' && prop.canBeCarried(this.game.actors.player) && !prop.isCarried()) {
-                    this.game.actors.player.holdObject(prop);
+                // picking up another prop when player isn't carrying anything
+                else {
+                    player.holdObject(prop);
                 }
             });
         });
-        this.cameras.main.startFollow(this.game.actors.player);
+        this.cameras.main.startFollow(player);
     }
 
     setupProps () {
