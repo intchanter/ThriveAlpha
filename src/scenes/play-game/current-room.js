@@ -23,6 +23,9 @@ export default class CurrentRoomScene extends Phaser.Scene {
 
         this.setupProps();
 
+        // correct tilemap flashing by using roundPixels on the camera
+        this.cameras.main.setRoundPixels(true);
+
         // cleanup when we shutdown (change rooms)
         this.events.once('shutdown', () => (this.cleanup()));
     }
