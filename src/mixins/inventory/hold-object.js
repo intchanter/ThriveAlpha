@@ -8,6 +8,11 @@ export default (superclass) => class extends superclass {
             // We're already holding something
             return;
         }
+
+        if (!object.canBeCarried()) {
+            return;
+        }
+
         if (object.isCarried()) {
             // It's already being held
             return;
