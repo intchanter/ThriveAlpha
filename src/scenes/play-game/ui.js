@@ -1,7 +1,5 @@
 import gameConfig from '../../config/game.json';
 
-import Key from '../../props/key';
-
 // UI Bar relatd constants
 const UIBarAlpha = 0.7;
 
