@@ -7,6 +7,7 @@ import Sword from '../props/sword';
 import Wood from '../props/wood';
 import Water from '../props/water';
 import Dish from '../props/dish';
+import Food from '../props/food';
 
 export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
     constructor (config, key = 'PlayGame') {
@@ -41,6 +42,8 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
 
         this.createDish();
 
+        this.createFood();
+
         // load current room
         this.scene.launch('CurrentRoom', { roomId: this.actors.player.getCurrentRoom() });
 
@@ -69,6 +72,10 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
 
     createDish () {
         this.props.dish = new Dish(this);
+    }
+
+    createFood () {
+        this.props.food = new Food(this);
     }
 
     gameOver (reason) {

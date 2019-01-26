@@ -23,13 +23,14 @@ export default class Dish extends
         this.setCurrentRoom(this.config.startingRoom);
     }
 
-    // if you are holding a dish and you forge it with water
-    forgeWith(player, water) {
+    // if you are holding a dish and you forge it with food and water
+    forgeWith(player, prop) {
         // decrease the player's thirst
-        if (player.thirst > 1000) {
-            player.thirst -= 1000;
-        } else {
-            player.thirst = 0;
+        if (!prop.injestible) return false;
+        if (prop.drinkable) {
+            (player.thirst > 1000) ? player.thirst -= 1000 : player.thirst = 0;
+        } else if (prop.edible) {
+            (player.hunger > 1000) ? player.hunger -= 1000 : player.hunger = 0;
         }
     }
 

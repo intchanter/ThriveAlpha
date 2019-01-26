@@ -49,6 +49,11 @@ export default (superclass) => class extends superclass {
             return true;
         }
 
+        // TODO: Store in a smarter way what can forge with what
+        if (prop.config.frame === 'dish' && this.config.frame === 'food') {
+            return true;
+        }
+
         return false;
     }
 

@@ -3,6 +3,7 @@ import propConfig from '../config/props.json';
 
 import Player from '../actors/player';
 
+
 import CarryMe from '../mixins/inventory/carry-me';
 import RoomLocation from '../mixins/room/location';
 
@@ -16,6 +17,9 @@ export default class Water extends
         super(scene, x, y, gameConfig.spriteAtlas.key, propConfig.water.frame);
 
         this.config = propConfig.water;
+
+        this.drinkable = true;
+        this.ingestible = true;
 
         this.setCurrentRoom(this.config.startingRoom);
     }
