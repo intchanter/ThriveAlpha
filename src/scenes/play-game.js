@@ -8,6 +8,7 @@ import Wood from '../props/wood';
 import Water from '../props/water';
 import Dish from '../props/dish';
 import Food from '../props/food';
+import FishingPole from '../props/fishing-pole';
 
 export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
     constructor (config, key = 'PlayGame') {
@@ -35,6 +36,8 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
         this.createPlayer();
 
         this.createSword();
+
+        this.createFishingPole();
 
         this.createWood();
 
@@ -68,6 +71,10 @@ export default class PlayGameScene extends AdminConsole(Phaser.Scene) {
 
     createWater () {
         this.props.water = new Water(this);
+    }
+
+    createFishingPole () {
+        this.props.fishingPole = new FishingPole(this);
     }
 
     createDish () {

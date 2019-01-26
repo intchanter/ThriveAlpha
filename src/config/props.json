@@ -69,5 +69,11 @@
         "startingRoom": 15,
         "startingX": 300,
         "startingY": 250
+    },
+    "fishingPole": {
+        "frame": "fishingpole",
+        "startingRoom": 15,
+        "startingX": 350,
+        "startingY": 100
     }
 }
