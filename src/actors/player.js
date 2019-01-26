@@ -3,11 +3,17 @@ import actorConfig from '../config/actors.json';
 
 import HoldObject from '../mixins/inventory/hold-object';
 import RoomLocation from '../mixins/room/location';
+import Thirst from './mixins/thirst';
+import Hunger from './mixins/hunger';
 
 export default class Player extends
-    RoomLocation(
-        HoldObject(
-            Phaser.Physics.Arcade.Sprite
+    Thirst (
+        Hunger (
+            RoomLocation(
+                HoldObject(
+                    Phaser.Physics.Arcade.Sprite
+                )
+            )
         )
     ) {
     constructor (scene, x = actorConfig.player.startingX, y = actorConfig.player.startingY) {
@@ -20,13 +26,11 @@ export default class Player extends
 
         this.config = actorConfig.player;
 
-        this.thirst = 0;
-        this.thirstRate = this.config.thirstRate;
-        this.maxThirst = this.config.maxThirst;
+        let {thirstRate, maxThirst, hungerRate, maxHunger, startingRoom} = this.config;
 
-        this.hunger = 0;
-        this.hungerRate = this.config.hungerRate;
-        this.maxHunger = this.config.maxHunger;
+        this.initializeThirstForSelf(thirstRate, maxThirst); 
+
+        this.initializeHungerForSelf(hungerRate, maxHunger);
 
         this.setCurrentRoom(this.config.startingRoom);
     }
@@ -50,18 +54,20 @@ export default class Player extends
 
         if (dropItem.isDown && this.heldObject()) this.dropObject();
 
-        this.thirst += this.thirstRate;
-        if (this.thirst >= this.maxThirst) {
-            // player dies!
-            this.scene.gameOver('You died from Thirst!');
-        }
+        this.updateThirstForSelf(isThirsty => {
+            if (isThirsty) {
+                // player dies!
+                this.scene.gameOver('You died from Thirst!');
+            }
+        });
 
-        this.hunger += this.hungerRate;
-        if (this.hunger >= this.maxHunger) {
-            // player dies!
-            this.scene.gameOver('You died from Hunger!');
-        }
-
+        this.updateHungerForSelf(isHungry => {
+            if (isHungry) {
+                // player dies!
+                this.scene.gameOver('You died from Hunger!');
+            }
+        });
+        
         if (super.preUpdate) super.preUpdate(time, delta);
     }
 }

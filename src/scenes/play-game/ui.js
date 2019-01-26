@@ -2,6 +2,17 @@ import gameConfig from '../../config/game.json';
 
 import Key from '../../props/key';
 
+// UI Bar relatd constants
+const UIBarAlpha = 0.7;
+
+const UIBackgroundBarHeight = 30;
+const UIBackgroundBarWidth = 210;
+
+const UIScalableBarHeight = 26;
+const UIScalableBarWidth = 200;
+
+const OneHundredPercent = 1;
+
 export default class UIScene extends Phaser.Scene {
     constructor (config, key = 'UI') {
         super({ key: key });
@@ -10,36 +21,66 @@ export default class UIScene extends Phaser.Scene {
     create () {
         this.game = this.scene.get('PlayGame');
 
-        this.hungerBackground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'grey_panel');
-        this.hungerBackground.setOrigin(0, 0);
-        this.hungerBackground.setPosition(20, 20);
-        this.hungerBackground.setDisplaySize(210,30);
+        this.createHungerBar(); 
 
-        this.hungerForeground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'yellow_panel');
-        this.hungerForeground.setOrigin(0, 0);
-        this.hungerForeground.setPosition(25, 22);
-        this.hungerForeground.setDisplaySize(200,26);
-
-        this.thirstBackground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'grey_panel');
-        this.thirstBackground.setOrigin(0, 0);
-        this.thirstBackground.setPosition(20, 50);
-        this.thirstBackground.setDisplaySize(210,30);
-
-        this.thirstForeground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'blue_panel');
-        this.thirstForeground.setOrigin(0, 0);
-        this.thirstForeground.setPosition(25, 52);
-        this.thirstForeground.setDisplaySize(200,26);
+        this.createThirstBar();
     }
 
     update (time, delta) {
+        this.updateHungerBar(time, delta); 
+
+        this.updateThirstBar(time, delta); 
+    }
+
+    //-------------------------------------------------------
+
+    createHungerBar () {
+        const uiBackgroundBarX = 20, uiBackgroundBarY = 20;
+        const uiScalableBarX = 25, uiScalableBarY = 22;
+
+        this.hungerBackground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'grey_panel');
+        this.hungerBackground.setOrigin(0, 0);
+        this.hungerBackground.setPosition(uiBackgroundBarX, uiBackgroundBarY);
+        this.hungerBackground.setDisplaySize(UIBackgroundBarWidth, UIBackgroundBarHeight);
+        this.hungerBackground.setAlpha(UIBarAlpha);
+
+        this.hungerForeground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'yellow_panel');
+        this.hungerForeground.setOrigin(0, 0);
+        this.hungerForeground.setPosition(uiScalableBarX, uiScalableBarY);
+        this.hungerForeground.setDisplaySize(UIScalableBarWidth, UIScalableBarHeight);
+        this.hungerForeground.setAlpha(UIBarAlpha);
+    }
+
+    createThirstBar () {
+        const uiBackgroundBarX = 20, uiBackgroundBarY = 50;
+        const uiScalableBarX = 25, uiScalableBarY = 52;
+
+        this.thirstBackground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'grey_panel');
+        this.thirstBackground.setOrigin(0, 0);
+        this.thirstBackground.setPosition(uiBackgroundBarX, uiBackgroundBarY);
+        this.thirstBackground.setDisplaySize(UIBackgroundBarWidth, UIBackgroundBarHeight);
+        this.thirstBackground.setAlpha(UIBarAlpha);
+
+        this.thirstForeground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'blue_panel');
+        this.thirstForeground.setOrigin(0, 0);
+        this.thirstForeground.setPosition(uiScalableBarX, uiScalableBarY);
+        this.thirstForeground.setDisplaySize(UIScalableBarWidth, UIScalableBarHeight);
+        this.thirstForeground.setAlpha(UIBarAlpha);
+    }
+
+    updateHungerBar () {
         let hungerPercentage = this.game.actors.player.hunger / this.game.actors.player.maxHunger;
-        if (hungerPercentage > 1) hungerPercentage = 1;
+        if (hungerPercentage > 1) hungerPercentage = OneHundredPercent;
+        let currentHunger = (OneHundredPercent - hungerPercentage) * UIScalableBarWidth;
 
-        this.hungerForeground.setDisplaySize(hungerPercentage * 200, 26);
+        this.hungerForeground.setDisplaySize(currentHunger, UIScalableBarHeight);
+    }
 
+    updateThirstBar () {
         let thirstPercentage = this.game.actors.player.thirst / this.game.actors.player.maxThirst;
-        if (thirstPercentage > 1) thirstPercentage = 1;
+        if (thirstPercentage > 1) thirstPercentage = OneHundredPercent;
+        let currentThirst = (OneHundredPercent - thirstPercentage) * UIScalableBarWidth;
 
-        this.thirstForeground.setDisplaySize(thirstPercentage * 200, 26);
+        this.thirstForeground.setDisplaySize(currentThirst, UIScalableBarHeight);
     }
 }
