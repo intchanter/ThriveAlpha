@@ -23,7 +23,11 @@
                 "name": "Bridge",
                 "tileset": "map-tileset-tiny"
             }
-        ]
+        ],
+        "materialTypes": {
+            "UNDEFINED": "undefined",
+            "WATER": "water"
+        }
     },
     "spriteAtlas": {
         "key": "sprite_atlas",

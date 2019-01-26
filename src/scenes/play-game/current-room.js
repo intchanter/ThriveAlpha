@@ -67,7 +67,7 @@ export default class CurrentRoomScene extends Phaser.Scene {
         this.tileLayers.walls.setCollisionByExclusion([-1]);
         this.physics.add.collider(player, this.tileLayers.walls); // map collisions with wall layer
 
-        // prop collisions
+        // player overlapping with props
         Object.values(this.game.props).forEach((prop) => {
             // the collision event (this actor with ANY prop)
             this.physics.add.overlap(player, prop, () => {
@@ -98,6 +98,19 @@ export default class CurrentRoomScene extends Phaser.Scene {
             if (prop.getCurrentRoom() === this.roomId) {
                 this.add.existing(prop);
                 this.physics.add.existing(prop);
+            }
+
+            // props overlapping with terrain and walls
+            if (prop.canFish()) {
+                // Terrain layer
+                this.physics.add.overlap(prop, this.tileLayers.Terrain, (ourProp, tile) => {
+                    ourProp.onOverlappingWater(tile);
+                });
+
+                // walls layer
+                this.physics.add.overlap(prop, this.tileLayers.walls, (ourProp, tile) => {
+                    ourProp.onOverlappingWater(tile);
+                });
             }
         });
     }

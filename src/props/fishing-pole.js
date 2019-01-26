@@ -10,6 +10,8 @@ export default class FishingPole extends Prop {
 
         this.config = propConfig.fishingPole;
 
+        this.enableFishing();
+
         this.setCanCarry(Player);
 
         this.setCurrentRoom(this.config.startingRoom);
