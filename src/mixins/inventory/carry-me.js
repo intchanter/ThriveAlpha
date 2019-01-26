@@ -1,14 +1,6 @@
 export default (superclass) => class extends superclass {
     holdMe (target) {
-        // drop me since something else is picking me up
-        this.dropMe();
-
-        // drop whatever my current target was carrying
-        if (target.objectCarried) target.objectCarried.dropMe();
-
-        // setup new target to carry me
         this.carryTarget = target;
-        target.objectCarried = this;
 
         // setup my carry position to be relative to the target
         this.carryRelX = this.x - target.x;

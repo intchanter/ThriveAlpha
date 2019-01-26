@@ -4,6 +4,17 @@ export default (superclass) => class extends superclass {
     }
 
     holdObject (object) {
+        if (this.heldObject()) {
+            // We're already holding something
+            return;
+        }
+        if (object.isCarried()) {
+            // It's already being held
+            return;
+        }
+
+        this.objectCarried = object;
+        object.holdMe(this);
         object.holdMe(this);
     }
 
