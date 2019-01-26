@@ -26,7 +26,8 @@ export default class Dish extends
     // if you are holding a dish and you forge it with food and water
     forgeWith(player, prop) {
         // decrease the player's thirst
-        if (!prop.injestible) return false;
+        if (!prop.ingestible) return false;
+
         if (prop.drinkable) {
             (player.thirst > 1000) ? player.thirst -= 1000 : player.thirst = 0;
         } else if (prop.edible) {

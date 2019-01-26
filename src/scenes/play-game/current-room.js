@@ -74,15 +74,16 @@ export default class CurrentRoomScene extends Phaser.Scene {
             // the collision event (this actor with ANY prop)
             this.physics.add.overlap(player, prop, () => {
                 // player is carrying a prop and it can be forged with the collided one
-                var carriedObject = player.objectCarried;
-                if (carriedObject && carriedObject !== prop && prop.canForgeWith(carriedObject)) {
-
-                    // execute the forge
-                    // TODO:
-                    // 1) Handle which of the two objects are consumed and remove them
-                    // 2) Handle the effect on the player by the merge (e.g. thirst decreased)
-                    // 3) Add any newly formed props, and whether they are held or just on the ground
-                    carriedObject.forgeWith(player, prop);
+                if (player.isHoldingObject()) { 
+                    let carriedObject = player.heldObject();
+                    if(carriedObject !== prop && prop.canForgeWith(carriedObject)) {
+                        // execute the forge
+                        // TODO:
+                        // 1) Handle which of the two objects are consumed and remove them
+                        // 2) Handle the effect on the player by the merge (e.g. thirst decreased)
+                        // 3) Add any newly formed props, and whether they are held or just on the ground
+                        carriedObject.forgeWith(player, prop);
+                    }
                 }
 
                 // picking up another prop when player isn't carrying anything
