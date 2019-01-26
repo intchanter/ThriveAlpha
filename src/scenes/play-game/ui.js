@@ -24,6 +24,27 @@ export default class UIScene extends Phaser.Scene {
         this.createThirstBar();
 
         this.createActionBar();
+
+        this.game.events.on('actionStart', data => {
+            this.actionValue = data.value;
+            this.actionMaxValue = data.maxValue;
+            this.showActionBar();
+        });
+
+        this.game.events.on('actionReset', data => {
+            this.actionValue = data.value;
+            this.actionMaxValue = data.maxValue;
+            this.showActionBar();
+        });
+
+        this.game.events.on('actionUpdate', data => {
+            this.actionValue = data.value;
+            this.actionMaxValue = data.maxValue;
+        });
+
+        this.game.events.on('actionComplete', data => {
+            this.hideActionBar();
+        });
     }
 
     update (time, delta) {
@@ -100,7 +121,13 @@ export default class UIScene extends Phaser.Scene {
     }
 
     updateActionBar () {
+        if (this.actionForeground.visible) {
+           let actionPercentage = this.actionValue / this.actionMaxValue;
+           if (actionPercentage > 1) actionPercentage = OneHundredPercent;
+           let currentAction = (OneHundredPercent - actionPercentage) * UIScalableBarWidth;
 
+           this.actionForeground.setDisplaySize(currentAction, UIScalableBarHeight);
+        }
     }
 
     updateHungerBar () {

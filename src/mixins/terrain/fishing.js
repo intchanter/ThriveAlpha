@@ -19,15 +19,29 @@ export default (superclass) => class extends superclass {
     }
 
     isFishingActorStationary () {
+        if (!this.isCarried()) { return false; }
+
         const { x, y } = this.getCarriedByTarget();
         return this.fishingActorX === x && this.fishingActorY === y;
     }
 
+    generateFishingActionEventData () {
+        return {
+            type: 'fishing',
+            value: this.fishingTimer,
+            maxValue: gameConfig.fishing.requiredTime
+        };
+    }
+
     resetFishing () {
+        if (!this.isCarried()) { return; }
+
         const { x, y } = this.getCarriedByTarget();
         this.fishingActorX = x;
         this.fishingActorY = y;
         this.fishingTimer = 0;
+
+        this.scene.events.emit('actionStart', this.generateFishingActionEventData());
     }
 
     stopFishing () {
@@ -80,20 +94,24 @@ export default (superclass) => class extends superclass {
     // NOTE! anything using this mixins will need to call super.preUpdate so we call this function
     // just this mixin does in case it is embedded in other mixins
     preUpdate (time, delta) {
-        if (!this.isCarried()) {
-            this.stopFishing();
-        }
-
         if (this.isFishing()) {
-            this.fishingTimer += delta;
-
-            if (!this.isFishingActorStationary()) {
-                this.resetFishing();
+            if (!this.isCarried()) {
+                this.stopFishing();
+                this.scene.events.emit('actionComplete', this.generateFishingActionEventData());
             }
+            else {
+                this.fishingTimer += delta;
+                this.scene.events.emit('actionUpdate', this.generateFishingActionEventData());
 
-            if (this.fishingTimer > gameConfig.fishing.requiredTime) {
-                console.log('we caught a fish!');
-                this.resetFishing();
+                if (!this.isFishingActorStationary()) {
+                    this.resetFishing();
+                    this.scene.events.emit('actionReset', this.generateFishingActionEventData());
+                }
+
+                if (this.fishingTimer > gameConfig.fishing.requiredTime) {
+                    this.scene.events.emit('actionComplete', this.generateFishingActionEventData());
+                    this.resetFishing();
+                }
             }
         }
 
