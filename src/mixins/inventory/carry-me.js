@@ -8,14 +8,11 @@ export default (superclass) => class extends superclass {
     }
 
     dropMe () {
-        // my current carry target should know they are carrying me anymore
-        if (this.carryTarget && this.carryTarget.objectCarried === this) this.carryTarget.objectCarried = null;
-
-        // I don't know about my carry target anymore
+        // I don't know about my carrier anymore
         this.carryTarget = null;
 
         // I don't want to be moving when I drop
-        this.setVelocity(0, 0);
+        //this.setVelocity(0, 0);
     }
 
     isCarried () {

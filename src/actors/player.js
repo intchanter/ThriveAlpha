@@ -52,6 +52,10 @@ export default class Player extends
                : 0;
         this.setVelocityY(vy);
 
+        if (dropItem.isDown) {
+            console.log('dropItem.isDown: ' + dropItem.isDown);
+            console.log('player.heldObject(): ' + this.heldObject());
+        }
         if (dropItem.isDown && this.heldObject()) this.dropObject();
 
         this.updateThirstForSelf(isThirsty => {

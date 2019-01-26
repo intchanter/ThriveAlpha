@@ -18,13 +18,17 @@ export default (superclass) => class extends superclass {
             return;
         }
 
+        console.log('Starting to carry ' + object);
         this.objectCarried = object;
-        object.holdMe(this);
         object.holdMe(this);
     }
 
     dropObject () {
-        if (this.heldObject()) this.heldObject().dropMe();
+        if (!this.heldObject()) {
+            return;
+        }
+        this.objectCarried = null;
+        this.heldObject().dropMe();
     }
 
     // NOTE! anything using this mixins will need to call super.preUpdate so we call this function

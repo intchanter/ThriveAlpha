@@ -70,7 +70,8 @@ export default class CurrentRoomScene extends Phaser.Scene {
         // prop collisions
         Object.values(this.game.props).forEach((prop) => {
             // the collision event (this actor with ANY prop)
-            this.physics.add.collider(this.game.actors.player, prop, () => {
+            this.physics.add.overlap(this.game.actors.player, prop, () => {
+                console.log('Player overlap detected.' + prop);
 
                 // player is carrying a prop and it can be forged with the collided one
                 var carriedObject = this.game.actors.player.objectCarried;
@@ -86,7 +87,7 @@ export default class CurrentRoomScene extends Phaser.Scene {
 
                 // picking up another prop
                 else if (typeof prop.canBeCarried === 'function' && prop.canBeCarried(this.game.actors.player) && !prop.isCarried()) {
-                    prop.holdMe(this.game.actors.player);
+                    this.game.actors.player.holdObject(prop);
                 }
             });
         });
