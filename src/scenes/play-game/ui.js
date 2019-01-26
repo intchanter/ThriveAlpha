@@ -22,12 +22,16 @@ export default class UIScene extends Phaser.Scene {
         this.createHungerBar(); 
 
         this.createThirstBar();
+
+        this.createActionBar();
     }
 
     update (time, delta) {
         this.updateHungerBar(time, delta); 
 
         this.updateThirstBar(time, delta); 
+
+        this.updateActionBar(time, delta); 
     }
 
     //-------------------------------------------------------
@@ -64,6 +68,39 @@ export default class UIScene extends Phaser.Scene {
         this.thirstForeground.setPosition(uiScalableBarX, uiScalableBarY);
         this.thirstForeground.setDisplaySize(UIScalableBarWidth, UIScalableBarHeight);
         this.thirstForeground.setAlpha(UIBarAlpha);
+    }
+
+    createActionBar () {
+        const uiBackgroundBarX = this.sys.game.config.width / 2 - UIBackgroundBarWidth / 2, uiBackgroundBarY = this.sys.game.config.height - 40;
+        const uiScalableBarX = this.sys.game.config.width / 2 - UIBackgroundBarWidth / 2 + 5, uiScalableBarY = this.sys.game.config.height - 38;
+
+        this.actionBackground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'grey_panel');
+        this.actionBackground.setOrigin(0, 0);
+        this.actionBackground.setPosition(uiBackgroundBarX, uiBackgroundBarY);
+        this.actionBackground.setDisplaySize(UIBackgroundBarWidth, UIBackgroundBarHeight);
+        this.actionBackground.setAlpha(UIBarAlpha);
+
+        this.actionForeground = this.add.image(0, 0, gameConfig.spriteAtlas.key, 'green_panel');
+        this.actionForeground.setOrigin(0, 0);
+        this.actionForeground.setPosition(uiScalableBarX, uiScalableBarY);
+        this.actionForeground.setDisplaySize(UIScalableBarWidth, UIScalableBarHeight);
+        this.actionForeground.setAlpha(UIBarAlpha);
+
+        this.hideActionBar();
+    }
+
+    hideActionBar () {
+        this.actionBackground.setVisible(false);
+        this.actionForeground.setVisible(false);
+    }
+
+    showActionBar () {
+        this.actionBackground.setVisible(true);
+        this.actionForeground.setVisible(true);
+    }
+
+    updateActionBar () {
+
     }
 
     updateHungerBar () {
