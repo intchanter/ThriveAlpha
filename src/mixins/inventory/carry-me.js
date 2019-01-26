@@ -3,8 +3,26 @@ export default (superclass) => class extends superclass {
         this.carryTarget = target;
 
         // setup my carry position to be relative to the target
-        this.carryRelX = this.x - target.x;
-        this.carryRelY = this.y - target.y;
+        let deltaX = this.x - target.x;
+        let deltaY = this.y - target.y;
+        let signX = deltaX / Math.abs(deltaX);
+        let signY = deltaY / Math.abs(deltaY);
+        
+        let minDeltaX = this.width / 2 + target.width / 2 + 1;
+        let minDeltaY = this.height / 2 + target.height / 2 + 1;
+
+        let overlapX = minDeltaX - Math.abs(deltaX);
+        let overlapY = minDeltaY - Math.abs(deltaY);
+
+        if (overlapX > 0 && overlapX < overlapY) {
+            deltaX = signX * minDeltaX;
+        }
+        else if (overlapY > 0) {
+            deltaY = signY * minDeltaY;
+        }
+
+        this.carryRelX = deltaX;
+        this.carryRelY = deltaY;
     }
 
     dropMe () {
@@ -25,12 +43,14 @@ export default (superclass) => class extends superclass {
 
     canBeCarried (actor) {
         // allow all to carry if there is no canCarryList
-        if (!this.canCarryList)
+        if (!this.canCarryList) {
             return true;
+        }
 
         for (let ActorClass of this.canCarryList) {
-            if (actor instanceof ActorClass)
+            if (actor instanceof ActorClass) {
                 return true;
+            }
         }
 
         return false;
@@ -58,6 +78,8 @@ export default (superclass) => class extends superclass {
             this.setPosition(this.carryTarget.x + this.carryRelX, this.carryTarget.y + this.carryRelY);
         }
 
-        if (super.preUpdate) super.preUpdate(time, delta);
+        if (super.preUpdate) {
+            super.preUpdate(time, delta);
+        }
     }
 }

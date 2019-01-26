@@ -9,13 +9,19 @@ export default (superclass) => class extends superclass {
 
     holdObject (prop) {
         // If we are already holding something, don't hold this prop
-        if (this.isHoldingObject()) return;
+        if (this.isHoldingObject()) {
+            return;
+        }
 
         // It's already being held
-        if (prop.isCarried()) return;
+        if (prop.isCarried()) {
+            return;
+        }
 
         // Don't hold this prop if we are not allowed to hold it
-        if (!prop.canBeCarried(this)) return;
+        if (!prop.canBeCarried(this)) {
+            return;
+        }
 
         this.objectCarried = prop;
         prop.holdMe(this);
@@ -23,7 +29,9 @@ export default (superclass) => class extends superclass {
 
     dropObject () {
         // If we are not holding something we can't drop it
-        if (!this.isHoldingObject()) return;
+        if (!this.isHoldingObject()) {
+            return;
+        }
 
         // tell object it is being dropped
         this.heldObject().dropMe();
@@ -38,6 +46,8 @@ export default (superclass) => class extends superclass {
             this.setPosition(this.carryTarget.x + this.carryRelX, this.carryTarget.y + this.carryRelY);
         }
 
-        if (super.preUpdate) super.preUpdate(time, delta);
+        if (super.preUpdate) {
+            super.preUpdate(time, delta);
+        }
     }
 }
