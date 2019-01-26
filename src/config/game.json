@@ -39,5 +39,8 @@
             "description": "gold castle grounds center",
             "fog": false
         }
+    },
+    "fishing": {
+        "requiredTime": 5000
     }
 }

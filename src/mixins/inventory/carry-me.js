@@ -34,6 +34,10 @@ export default (superclass) => class extends superclass {
         return this.carryTarget !== undefined;
     }
 
+    getCarriedByTarget () {
+        return this.carryTarget;
+    }
+
     setCanCarry (ActorClass) {
         if (!this.canCarryList)
             this.canCarryList = [];

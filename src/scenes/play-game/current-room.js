@@ -100,15 +100,12 @@ export default class CurrentRoomScene extends Phaser.Scene {
                 this.physics.add.existing(prop);
             }
 
-            // props overlapping with terrain and walls
+            // props overlapping with wall layer (where water is)
             if (prop.canFish()) {
-                // Terrain layer
-                this.physics.add.overlap(prop, this.tileLayers.Terrain, (ourProp, tile) => {
-                    ourProp.onOverlappingWater(tile);
-                });
-
                 // walls layer
                 this.physics.add.overlap(prop, this.tileLayers.walls, (ourProp, tile) => {
+                    if (tile === undefined) { return; }
+
                     ourProp.onOverlappingWater(tile);
                 });
             }
