@@ -1,7 +1,5 @@
 import gameConfig from '../../config/game.json';
 
-import Key from '../../props/key';
-
 export default class CurrentRoomScene extends Phaser.Scene {
     constructor (config, key = 'CurrentRoom') {
         super({ key: key });
